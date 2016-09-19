@@ -17,7 +17,7 @@ ini_set('display_errors', 1); # Display errors on page (instead of a log file)
 
   <form action='index.php' method='GET'>
   </form>
-    <input type='text' name='numWords'><br>
+    <input type='text' name='numWords'>Enter desired number of words<br>
     <input type='radio' name='yesOrNo' value='yes'>Yes<br>
     <input type='radio' name='yesOrNo' value='no'>No<br>
     <input type='submit' value='Get a password!'>
