@@ -1,23 +1,27 @@
 body{
 	background-color: #fff;
 	overflow: auto;
-  text-decoration: none;
-  margin: 10px;
-  padding-right: 40px;
-  float: right;
-  font-size: 20px;
-  text-align: center;
+	text-decoration: none;
+	margin: 10px;
+	padding-right: 40px;
+	float: right;
+	font-size: 20px;
+	text-align: center;
+	font-family: 'Pavanam', sans-serif;
 }
 
 img {
   max-width: 90%;
 }
-p {
-		font-family: Helvetica sans-serif;
-}
+
 h1 {
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Gloria Hallelujah';
   font-size: 40px;
+}
+
+h2{
+	font-weight: bold;
+	color:  #0F6785;
 }
 .button {
   background: #3498db;

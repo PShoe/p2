@@ -1,36 +1,48 @@
 <?php
 
+# Make character string into an array
 $SYMS = str_split("@#$%^&*()_-=+;:,.?");
+# Make number string into an array
 $NUMS = str_split("1234567890");
-$numWords = intval($_GET["howManyWords"]);
+$password = "";
+// $desiredLength = "";
 
-// IMPORT CSV FOOD WORD ARRAY
+# IMPORT CSV FOOD WORD ARRAY---------------------------
 $file = fopen("foodwords.csv","r");
-$foodList = explode(chr(13), fgets($file)); // http://stackoverflow.com/questions/3278375/how-can-you-parse-excel-csv-data-that-contains-linebreaks-in-the-data
-// print_r($foodList);
-// print_r($foodList);
+$foodList = explode(chr(13), fgets($file));
+//http://stackoverflow.com/questions/3278375/how-can-you-parse-excel-csv-data-that-contains-linebreaks-in-the-data -record this as reference in README for ch(13)
+# print_r($foodList); to test
 fclose($file);
 
-
-if ($numWords == ""){
-    echo "Please enter a desired length";
+# FORM DATA ------------------------------
+# Will deplay this code only if there is information entered into form with isset
+if (isset($_GET["howManyWords"])){
+# Need the number of words to be manipulated as a number, also easier to write "numWords" than _GET[howManyWords]
+$numWords = intval($_GET["howManyWords"]);
+# If/else statement to return random keys from foodList array
+if ($numWords !== 0){
+$rand_words = array_rand($foodList,$numWords);
 }
-else {
-$rand_words = array_rand($foodList, $_GET["howManyWords"]);
 
-$password = "";
+# PRINT PASSWORD -------------------------
+# Create password variable to print the generated password
+# For loop to print password based on given numWords length from form
 for($i = 0; $i < $numWords; $i++){
-    if ($i == 0){$password = $password . $foodList[$rand_words[$i]];}
-    else {$password = $password . "-" . $foodList[$rand_words[$i]];}
-}}
-
-// keep tackin' stuff onto password
-
-if(array_key_exists('add_number',$_GET)){
-    $password .= array_rand($NUMS);
+    if ($i == 0){
+        $password = $password . $foodList[$rand_words[$i]];
+    }
+    else {
+        $password = $password . " - " . $foodList[$rand_words[$i]];
+    }
 }
-
-if(array_key_exists('add_symbol',$_GET)){
-    $password .= array_rand($SYMS);
+# Continue to add number and unique character to password variable
+if($numWords !== 0){
+if( array_key_exists('add_number',$_GET)){
+    $password .= " - " . array_rand($NUMS);
 }
-echo $password;
+if( array_key_exists('add_symbol',$_GET)){
+    $password .= " - " . array_rand($SYMS);
+}
+}
+}
+# echo $password; to test
