@@ -1,60 +1,36 @@
 <?php
-// $foodFile = fopen('foodwords.csv', 'r');
-//   while (($foodArray = fgetcsv($foodFile)) !== FALSE) {
-//     print_r($foodArray);
-//   }
-//   fclose($foodFile);
-//
-//   count($foodArray)
 
+$SYMS = str_split("@#$%^&*()_-=+;:,.?");
+$NUMS = str_split("1234567890");
+$numWords = intval($_GET["howManyWords"]);
 
-// $file = file_get_contents("foodwords.csv");
-// $data = array_map("str_getcsv", preg_split('/\r*\n+|\r+/', $file));
-// print_r($data);
-//
-// count(foodArray)
-//
-// $foodWords = fgetcsv('foodwords.csv');
-// count($foodWords)
-//
-// $_POST["numberofwords"] will give you access to the value of input element `<input type="number" name="numberofwords">`
-
-// $foodWords = fgetcsv("foodwords.csv","r");
-
-// $foodWords = array_map('str_getcsv', file('foodwords.csv'));
-
-
-
-$file = fopen('foodwords.csv', 'r');
-while (($foodWords = fgetcsv($file)) !== FALSE) {
-  echo "string"; '</pre>';
-  echo $foodWords;
-  echo '</pre>';
-}
+// IMPORT CSV FOOD WORD ARRAY
+$file = fopen("foodwords.csv","r");
+$foodList = explode(chr(13), fgets($file)); // http://stackoverflow.com/questions/3278375/how-can-you-parse-excel-csv-data-that-contains-linebreaks-in-the-data
+// print_r($foodList);
+// print_r($foodList);
 fclose($file);
 
-// Counts number of elements in an array
-echo count($foodWords);
 
+if ($numWords == ""){
+    echo "Please enter a desired length";
+}
+else {
+$rand_words = array_rand($foodList, $_GET["howManyWords"]);
 
+$password = "";
+for($i = 0; $i < $numWords; $i++){
+    if ($i == 0){$password = $password . $foodList[$rand_words[$i]];}
+    else {$password = $password . "-" . $foodList[$rand_words[$i]];}
+}}
 
+// keep tackin' stuff onto password
 
-// $foodWords = fopen('foodwords.csv', 'r');
-// echo '<pre>';
-// print_r(fgetcsv($foodWords));
-// fclose($foodWords);
-// echo var_dump($foodWords);
-// echo '</pre>';
-// echo count($foodWords);
-// ?>
+if(array_key_exists('add_number',$_GET)){
+    $password .= array_rand($NUMS);
+}
 
-<!-- Get array from CSV -->
-<!-- $foodArray = [...]; -->
-<!-- array = -->
-<!-- $foodArray = [...]; -->
-<!-- shuffle the array -->
-<!-- shuffle($foodArray); -->
-<!-- for each, takes the last element of an array -->
-<!-- while($element = array_pop($foodArray)){ -->
-  <!-- echo 'pwElement:' . $element; -->
-<!-- } -->
+if(array_key_exists('add_symbol',$_GET)){
+    $password .= array_rand($SYMS);
+}
+echo $password;
