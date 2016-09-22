@@ -25,7 +25,7 @@ ini_set('display_errors', 1); # Display errors on page (instead of a log file)
 		<img class="snacks" src="http://www.clipartkid.com/images/249/healthy-food-border-clipart-panda-free-clipart-images-jUOQXH-clipart.jpg" alt="snacks"></a>
 
     <h1>Hungry for a password?..</h1>
-		<h2><?php if ($numWords == 0){ echo "Please enter how many words you'd like.";} ?></h2>
+		<h2><?php if (isset($numWords) && ($numWords == 0)){ echo "Please enter how many words you'd like.";} ?></h2>
 		<h2><?php echo $password ?></h2>
 		<form class="form" action='index.php' method='GET'>
 
