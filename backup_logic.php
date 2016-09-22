@@ -41,3 +41,6 @@ if(array_key_exists('add_symbol',$_GET)){
     $password .= array_rand($SYMS);
 }
 echo $password;
+
+//http://stackoverflow.com/questions/3278375/how-can-you-parse-excel-csv-data-that-contains-linebreaks-in-the-data -record this as reference in README for ch(13)
+# print_r($foodList); to test

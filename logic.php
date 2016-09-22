@@ -10,18 +10,17 @@ $password = "";
 # IMPORT CSV FOOD WORD ARRAY---------------------------
 $file = fopen("foodwords.csv","r");
 $foodList = explode(chr(13), fgets($file));
-//http://stackoverflow.com/questions/3278375/how-can-you-parse-excel-csv-data-that-contains-linebreaks-in-the-data -record this as reference in README for ch(13)
-# print_r($foodList); to test
 fclose($file);
 
 # FORM DATA ------------------------------
 # Will deplay this code only if there is information entered into form with isset
-if (isset($_GET["howManyWords"])){
 # Need the number of words to be manipulated as a number, also easier to write "numWords" than _GET[howManyWords]
-$numWords = intval($_GET["howManyWords"]);
 # If/else statement to return random keys from foodList array
-if ($numWords !== 0){
-$rand_words = array_rand($foodList,$numWords);
+if (isset($_GET["howManyWords"])){
+    $numWords = intval($_GET["howManyWords"]);
+
+    if ($numWords !== 0){
+        $rand_words = array_rand($foodList,$numWords);
 }
 
 # PRINT PASSWORD -------------------------
