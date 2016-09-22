@@ -4,6 +4,7 @@ README.md
 
 ## Live URL
 <http://p2.paulineshoemaker.me/>
+* This only works locally as of 9/21, however, managed to pull code to DO code previously, so it is not blank.
 
 ## Description- PHP Basics
 The aim is to create a password generator alike to the xkcd examples given. This should include forms, arrays, and server side validation/
@@ -15,7 +16,9 @@ The aim is to create a password generator alike to the xkcd examples given. This
 4. Basic server side validation is required, client side validation is encouraged
 
 ## Demo
-<Insert here>
+<http://www.screencast.com/t/0CfmcVGd>
 
 ## Outside materials
 + xkcd examples
++ lots of Google
++ Inititalize CSS

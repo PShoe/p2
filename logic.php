@@ -18,7 +18,7 @@ if (isset($_GET["howManyWords"])){
 $numWords = intval($_GET["howManyWords"]);
 
     # Some simple form validation
-    if(!ctype_alnum($numWords)) {
+    if(!ctype_alnum($_GET["howManyWords"])) {
     $error = 'Contestant names may only contain letters; no numbers or symbols.';
     		return;
     	}
