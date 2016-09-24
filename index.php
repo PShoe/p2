@@ -22,7 +22,7 @@ ini_set('display_errors', 1); # Display errors on page (instead of a log file)
 	</head>
 
 	<body>
-		<img class="snacks" src="http://www.clipartkid.com/images/249/healthy-food-border-clipart-panda-free-clipart-images-jUOQXH-clipart.jpg" alt="snacks"></a>
+		<img class="snacks" src="http://www.clipartkid.com/images/249/healthy-food-border-clipart-panda-free-clipart-images-jUOQXH-clipart.jpg" alt="snacks">
 
     <h1>Hungry for a password?..</h1>
 		<h2><?php if (isset($numWords) && ($numWords == 0)){ echo "Please enter how many words you'd like.";} ?></h2>
