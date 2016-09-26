@@ -25,13 +25,14 @@ ini_set('display_errors', 1); # Display errors on page (instead of a log file)
 	<img class="snacks" src="http://www.clipartkid.com/images/249/healthy-food-border-clipart-panda-free-clipart-images-jUOQXH-clipart.jpg" alt="snacks">
 	<h1>Hungry for a password?..</h1>
 	<h2><?php if (isset($numWords) && ($numWords == 0)){ echo "Please enter how many words you'd like.";} ?></h2>
-	<h2><?php echo $password ?></h2>
-	
+	<h2><?php if (isset($numWords) && ($numWords < 6) && ($numWords > 0)) {echo $password;} ?></h2>
+	<h2><?php if (isset($numWords) && ($numWords > 5 | $numWords < 0)){echo "This number is not between one and five.";} ?></h2>
+
 	<form class="form" action='index.php' method='GET'>
 		<p class='pwform'>
 			<label for="howManyWords">How many words long? Max of 5</label>
 			<br>
-			<input type='number' name='howManyWords' min='1' max='5' id='howManyWords'>
+			<input type='number' name='howManyWords' id='howManyWords'>
 			<br>
 			<input type='checkbox' name='add_number' id='add_number' >
 			<label for='add_number'>Add a number?</label>
@@ -44,3 +45,4 @@ ini_set('display_errors', 1); # Display errors on page (instead of a log file)
 
 </body>
 </html>
+<!-- min='1' max='5' -->

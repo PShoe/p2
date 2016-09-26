@@ -19,9 +19,11 @@ if (isset($_GET["howManyWords"])){
 
     # Some simple form validation
     if(!ctype_alnum($_GET["howManyWords"])) {
-        $error = 'Contestant names may only contain letters; no numbers or symbols.';
+        $errorAlpha = 'Contestant names may only contain letters; no numbers or symbols.';
         return;
     }
+
+
 
     # If/else statement to return random keys from foodList array
     if ($numWords !== 0){
@@ -31,10 +33,10 @@ if (isset($_GET["howManyWords"])){
     # PRINT PASSWORD -------------------------
     for($i = 0; $i < $numWords; $i++){
         if ($i == 0){
-            $password = $password . $foodList[$rand_words[$i]];
+            $password .= $foodList[$rand_words[$i]];
         }
         else {
-            $password = $password . " - " . $foodList[$rand_words[$i]];
+            $password .= " - " . $foodList[$rand_words[$i]];
         }
     }
     # Continue to add number and unique characters to password variable
