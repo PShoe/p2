@@ -11,11 +11,16 @@ $file = fopen("foodwords.csv","r");
 $foodList = explode(chr(13), fgets($file));
 fclose($file);
 
+//print_r($_GET);
+// print_r($foodList);
+
 # FORM DATA ------------------------------
 if (isset($_GET["howManyWords"])){
 
     #Use as integer
-    $numWords = intval($_GET["howManyWords"]);
+    $numWords = $_GET["howManyWords"];
+    echo 'numWords:'.$numWords.'<br>';
+    //print_r($_GET);
 
     # Some simple form validation
     if(!ctype_alnum($_GET["howManyWords"])) {
@@ -23,20 +28,24 @@ if (isset($_GET["howManyWords"])){
         return;
     }
 
-
-
     # If/else statement to return random keys from foodList array
-    if ($numWords !== 0){
-        $rand_words = array_rand($foodList,$numWords);
+    if ($numWords > 1){
+        $rand_key = array_rand($foodList, $numWords);
     }
+    elseif($numWords == 1) {
+        $rand_key = [array_rand($foodList, $numWords)];
+    }
+
+
 
     # PRINT PASSWORD -------------------------
     for($i = 0; $i < $numWords; $i++){
         if ($i == 0){
-            $password .= $foodList[$rand_words[$i]];
+
+            $password .= $foodList[$rand_key[$i]];
         }
         else {
-            $password .= " - " . $foodList[$rand_words[$i]];
+            $password .= " - " . $foodList[$rand_key[$i]];
         }
     }
     # Continue to add number and unique characters to password variable

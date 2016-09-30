@@ -45,4 +45,3 @@ ini_set('display_errors', 1); # Display errors on page (instead of a log file)
 
 </body>
 </html>
-<!-- min='1' max='5' -->
