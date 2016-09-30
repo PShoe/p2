@@ -19,12 +19,10 @@ if (isset($_GET["howManyWords"])){
 
     #Use as integer
     $numWords = $_GET["howManyWords"];
-    echo 'numWords:'.$numWords.'<br>';
-    //print_r($_GET);
 
     # Some simple form validation
     if(!ctype_alnum($_GET["howManyWords"])) {
-        $errorAlpha = 'Contestant names may only contain letters; no numbers or symbols.';
+        $errorAlpha = 'Must contain only numbers.';
         return;
     }
 
@@ -35,7 +33,6 @@ if (isset($_GET["howManyWords"])){
     elseif($numWords == 1) {
         $rand_key = [array_rand($foodList, $numWords)];
     }
-
 
 
     # PRINT PASSWORD -------------------------
